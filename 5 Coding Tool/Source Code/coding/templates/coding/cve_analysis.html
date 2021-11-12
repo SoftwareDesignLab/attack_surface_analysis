@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Joanna C. S. Santos">
+        <title>Analyzed CVEs</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="{% static 'jss2017/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link href="{% static 'jss2017/bootstrap/css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="{% static 'jss2017/bootstrap/css/dashboard.css' %}" rel="stylesheet">
+
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        {% block html_head %}{% endblock %}
+        <style>
+            p {margin: 0px; }
+            hr {margin-top: 10px; margin-bottom: 5px;}
+            ul.codes li {list-style-type: none;}
+            @media print { .no-print, .no-print * { display: none !important; } }
+            /* .bd-callout,pre{ font-size: 12px; } */
+        </style>
+        <script type="text/javascript">
+
+        </script>
+    </head>
+
+  <body style="padding-top:0px;">
+
+
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <!-- Page content -->
+        <div class="col-sm-12 main">
+            <h2 class="page-header">
+                {{case_study}}
+            </h2>
+
+          <div class="row">
+                {%if categories|length > 0 %}
+                    <div class="bd-callout">
+                        {% for tag, cves in categories %}
+                            <div class="panel panel-default {{tag}}">
+                                <div class="panel-heading">{{tag}} ({{ cves | length }})</div>
+                                <div class="panel-body">
+                                {% for p in cves %}
+                                    <p><b class="cve-id" id="{{p}}">{{p}}</b> - {{p.cve.description}}</p>
+                                    {% if p.context|length > 0 %}<p><b>Context</b>: {{p.context}}</p>{% endif %}
+                                    {% if p.problem %}<p><b>Problem</b>: {{p.problem | linebreaks}}</p>{% endif %}
+                                    {% if p.solution %}<p><b>Solution</b>: {{p.solution | linebreaks }}</p>{% endif %}
+                                    {% if p.bugtrack_url %}<p><b>Bug Track URL(s)</b>: {{p.bugtrack_urls_html | safe}}</p>{% endif %}
+                                    {% if p.commit_url %}<p><b>Commit URL(s)</b>: {{p.commits_urls_html | safe}}</p>{% endif %}
+                                    {% if p.boundary_violation_rationale %}<p><b>Rationale</b>: {{p.boundary_violation_rationale}}</p> {% endif %}
+                                    {% if p.location_tag %}<p><b>Coding Tag</b>: {{p.location_tag}}</p>{% endif %}
+                                    {% if not forloop.last %}<hr>{%endif%}
+                                {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div> <!-- End Page content -->
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -  Placed at the end of the document so the pages load faster
+    ================================================== -->
+    <script src="{% static 'jss2017/bootstrap/js/jquery.min.js' %}"></script>
+    <script src="{% static 'jss2017/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'jss2017/bootstrap/js/ie10-viewport-bug-workaround.js' %}"></script>
+
+
+</body>
+</html>
+
+
+
+

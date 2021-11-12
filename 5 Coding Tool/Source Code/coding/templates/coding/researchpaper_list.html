@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Joanna C. S. Santos">
+        <title>Research Papers</title>
+
+        <!-- Bootstrap core CSS -->
+        <!--<link href="{% static 'jss2017/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">-->
+
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <!--<link href="{% static 'jss2017/bootstrap/css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">-->
+
+        <!-- Custom styles for this template -->
+        <!--<link href="{% static 'jss2017/bootstrap/css/dashboard.css' %}" rel="stylesheet">-->
+
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        {% block html_head %}{% endblock %}
+        <style>
+            /*body {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}*/
+            html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; font-size: 12px; line-height: 1.5;}
+            body {padding: 20px;}
+            ul.codes li {list-style-type: none;}
+            p{ margin-bottom: 10px; margin-top: 10px;}
+            /*@media print { .no-print, .no-print * { display: none !important; } td {min-width: 80px;}}*/
+            /* .bd-callout,pre{ font-size: 12px; } */
+            dl,dt,dd{ margin-bottom: 5px; margin-top: 5px;}
+            dd { margin-left: 20px;}
+        </style>
+        <script type="text/javascript">
+
+        </script>
+    </head>
+
+  <body style="padding-top:0px;">
+
+
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <!-- Page content -->
+        <div class="col-sm-12 main">
+            <h2 class="page-header">
+                <center>Research Papers</center>
+            </h2>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                {% for p in papers %}
+                    <dl>
+                        <h3><a target="_blank" href="https://ceciliajoanna.pythonanywhere.com/admin/icsa2018/researchpaper/{{p.id}}/?_changelist_filters=match_our_criteria__exact%3DYes">{{p.title}}</a></h3>
+                        <!--<dt><b>Title</b></dt> <dd>{{p.title}}</dd>-->
+                        <dt><b>URL</b></dt> <dd><a href="{{p.url}}">{{p.url}}</a></dd>
+                        <dt><b>Overlapping Concepts</b></dt> <dd>{{p.overlapping_tags | linebreaks}}</dd>
+                        <dt><b>Other notes</b></dt> <dd>{{p.other_notes}}</dd>
+                    </dl>
+                    {% if not forloop.last %}<hr style="margin: 20px 0px;">{%endif%}
+                {% endfor %}
+                </div>
+            </div>
+
+
+        </div> <!-- End Page content -->
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -  Placed at the end of the document so the pages load faster
+    ================================================== -->
+    <!--<script src="{% static 'jss2017/bootstrap/js/jquery.min.js' %}"></script>-->
+    <!--<script src="{% static 'jss2017/bootstrap/js/bootstrap.min.js' %}"></script>-->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<script src="{% static 'jss2017/bootstrap/js/ie10-viewport-bug-workaround.js' %}"></script>-->
+
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,4 @@
+Django==1.10
+django-autocomplete-light==3.2.10
+django-ckeditor==5.2.1
+six==1.10.0
