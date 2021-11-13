@@ -1,6 +1,6 @@
 This folder contains open codes that are extracted from collected vulnerability date. 
 
--  **CodedCVE excel file contains following information:**
+- **CodedCVE excel file contains following information:**
   - cve_id: vulnerability identifier
   - Description: description of the security issue
   - notes 
