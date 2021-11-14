@@ -9,4 +9,4 @@ We provide the summary of the data included in each folder:
 - **4. Axial Codes:** This folder contains the axial codes that show how open codes and concepts are grouped into categories.
 - **5. Core Categories:** Core categories obtained in selective coding for Targets (What), Entry Points(Where), and Mechanisms (How).
 - **6. Coding Tool:** Information about the tool used during open coding and its source code.
-- **7. Coding Tool:** This folder contains data retrieved during the systematic literature review.
+- **7. SLR:** This folder contains data retrieved during the systematic literature review.
