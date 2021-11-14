@@ -3,7 +3,7 @@ This folder contains open codes that are extracted from collected vulnerability 
 - **CodedCVE excel file contains following information:**
   - cve_id: vulnerability identifier
   - description: description of the security issue
-  - notes: notes taken during coding process
+  - note: notes taken during coding process
   - product: product that has the vulnerability
   - open code (where): codes related to entry points
   - open code (what): codes related to target
@@ -16,5 +16,5 @@ This folder contains open codes that are extracted from collected vulnerability 
   - open code (where): codes related to entry points
   - open code (what): codes related to target
   - open code (how): codes related to mechanism
-  - notes: notes taken during coding process 
+  - note: notes taken during coding process 
 
