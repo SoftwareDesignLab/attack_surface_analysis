@@ -5,4 +5,4 @@ We developed a coding tool (shown below) to manage CVE categories, tags, program
  ![The Coding Tool](tool.png)
  
 ## Source Code
-This directory contains teh source code of the tool.
+This directory contains the source code of the tool.
